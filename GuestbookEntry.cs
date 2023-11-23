@@ -10,13 +10,18 @@ namespace Guestbook
         private string message =""; 
 
         public string Guest { 
-            get {return guest;}
-            set {guest = value;} 
+            get {return guest ?? "";}
+            set {guest = value ?? ""; } // Se till att värdet inte är null 
         }
 
         public string Message { 
-            get {return message;}
-            set {message = value;} 
+            get {return message ?? "";}
+            set {message = value ?? ""; } // Se till att värdet inte är null
+        }
+
+        public void DisplayEntry(int index)
+        {
+            Console.WriteLine($"[{index}] {Guest} - {Message}");
         }
     }
 }
